@@ -21,7 +21,7 @@ public class Journal implements Serializable {
 	@ManyToOne
 	private Media media;
 	@ManyToOne
-	private Regional regional;
+	private Region regional;
 	
 	public Integer getId() {
 		return id;
@@ -55,11 +55,11 @@ public class Journal implements Serializable {
 		this.media = media;
 	}
 
-	public Regional getRegional() {
+	public Region getRegional() {
 		return regional;
 	}
 
-	public void setRegional(Regional regional) {
+	public void setRegional(Region regional) {
 		this.regional = regional;
 	}
 	

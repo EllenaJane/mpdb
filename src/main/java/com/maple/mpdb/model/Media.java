@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Media implements Serializable{
@@ -17,7 +17,6 @@ public class Media implements Serializable{
 	private Integer id;
 	private String name;
 	private String website;
-	private MultipartFile logo;
 	
 	public Integer getId() {
 		return id;
@@ -36,12 +35,6 @@ public class Media implements Serializable{
 	}
 	public void setWebsite(String website) {
 		this.website = website;
-	}
-	public MultipartFile getLogo() {
-		return logo;
-	}
-	public void setLogo(MultipartFile logo) {
-		this.logo = logo;
 	}
 	
 }
