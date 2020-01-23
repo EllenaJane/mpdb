@@ -9,9 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import lombok.Data;
 
 
 @Entity
+@Data
 public class Region implements Serializable {
 
   /**
@@ -26,22 +28,6 @@ public class Region implements Serializable {
 
   @ManyToMany(cascade = CascadeType.PERSIST)
   private List<Media> medialist = new ArrayList<>();
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
 
 
 

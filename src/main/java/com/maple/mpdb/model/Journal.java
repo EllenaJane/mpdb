@@ -2,67 +2,28 @@ package com.maple.mpdb.model;
 
 import java.io.Serializable;
 import java.time.Instant;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import lombok.Data;
 
 @Entity
+@Data
 public class Journal implements Serializable {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private Type type;
-	private Instant publishedDate;
-	
-	@ManyToOne
-	private Media media;
-	@ManyToOne
-	private Region regional;
-	
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
+  private Type type;
+  private Instant publishedDate;
 
-	public Type getType() {
-		return type;
-	}
+  @ManyToOne
+  private Media media;
+  @ManyToOne
+  private Region regional;
 
-	public void setType(Type type) {
-		this.type = type;
-	}
 
-	public Instant getPublishedDate() {
-		return publishedDate;
-	}
 
-	public void setPublishedDate(Instant publishedDate) {
-		this.publishedDate = publishedDate;
-	}
-
-	public Media getMedia() {
-		return media;
-	}
-
-	public void setMedia(Media media) {
-		this.media = media;
-	}
-
-	public Region getRegional() {
-		return regional;
-	}
-
-	public void setRegional(Region regional) {
-		this.regional = regional;
-	}
-	
-	
-	
 }
