@@ -16,4 +16,14 @@ public class Role implements Serializable {
   private int id;
   private String name;
 
+  /**
+   * @param name
+   */
+  public Role(String name) {
+    super();
+    this.name = name;
+  }
+
+  public Role() {}
+
 }
