@@ -22,7 +22,7 @@ public class Journal implements Serializable {
   @ManyToOne
   private Media media;
   @ManyToOne
-  private Region regional;
+  private Region region;
 
 
 

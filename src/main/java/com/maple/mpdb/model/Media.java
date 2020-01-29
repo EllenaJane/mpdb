@@ -1,10 +1,15 @@
 package com.maple.mpdb.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import lombok.Data;
 
 
@@ -22,6 +27,10 @@ public class Media implements Serializable {
   private String name;
   private String website;
 
+  @ManyToMany
+  @JoinTable(name = "MEDIA_REGION", joinColumns = {@JoinColumn(name = "MEDIA_ID")},
+      inverseJoinColumns = {@JoinColumn(name = "REGION_ID")})
+  private Set<Region> regionlist = new HashSet<>();
 
 
 }
