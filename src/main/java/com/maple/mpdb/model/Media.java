@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +28,7 @@ public class Media implements Serializable {
   private String name;
   private String website;
 
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(name = "MEDIA_REGION", joinColumns = {@JoinColumn(name = "MEDIA_ID")},
       inverseJoinColumns = {@JoinColumn(name = "REGION_ID")})
   private Set<Region> regionlist = new HashSet<>();
