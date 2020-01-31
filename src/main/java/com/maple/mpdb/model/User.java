@@ -29,14 +29,13 @@ public class User implements Serializable, UserDetails {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   private String name;
-  @NotNull
   private String passWord;
   @Transient
   private boolean enable = true;
 
-  @ManyToOne(cascade = CascadeType.PERSIST)
+  @ManyToOne(cascade = CascadeType.MERGE)
   private Role role;
-  @ManyToOne(cascade = CascadeType.PERSIST)
+  @ManyToOne(cascade = CascadeType.MERGE)
   private Organization organization;
 
   /**
