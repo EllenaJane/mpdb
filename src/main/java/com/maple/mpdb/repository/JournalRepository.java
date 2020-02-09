@@ -17,16 +17,6 @@ import com.maple.mpdb.model.Type;
 @Repository
 public interface JournalRepository extends JpaRepository<Journal, Integer> {
 
-  /*
-   * List<Journal> findByType(final Type type);
-   * 
-   * @Query("SELECT j FROM Journal j WHERE j.media = ?1") List<Journal> findByMedia(final Integer
-   * mediaId);
-   * 
-   * @Query("SELECT j FROM Journal j WHERE j.publishedDate >= ?1 and j.publishedDate <= ?2")
-   * List<Journal> findByPeriod(final Instant fromDate, final Instant toDate);
-   */
-
   @Query("SELECT j FROM Journal j WHERE (?1 is null or j.type = ?1) and  (?2 is null or j.media.id = ?2) and "
       + "(?3 is null or j.publishedDate >= ?3) and (?4 is null or j.publishedDate <= ?4)")
   List<Journal> search(final Type type, final Integer mediaId, final Date fromDate,
