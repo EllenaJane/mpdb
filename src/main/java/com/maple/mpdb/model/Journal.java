@@ -21,7 +21,7 @@ public class Journal implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   @Enumerated(EnumType.STRING)
-  private Type type;
+  private JournalType type;
   @Temporal(TemporalType.DATE)
   private Date publishedDate;
 

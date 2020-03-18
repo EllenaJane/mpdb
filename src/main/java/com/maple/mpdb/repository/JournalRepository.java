@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.maple.mpdb.model.Journal;
-import com.maple.mpdb.model.Type;
+import com.maple.mpdb.model.JournalType;
 
 /**
  * Repository layer for managing journal transactions
@@ -21,6 +21,6 @@ public interface JournalRepository extends JpaRepository<Journal, Integer> {
   @Query("SELECT j FROM Journal j WHERE (:type is null or j.type = :type) and "
       /* + "(coalesce(:mediaId, null) is null or j.media.id in (:mediaId)) and " */
       + "(:fromDate is null or j.publishedDate >= :fromDate) and (:toDate is null or j.publishedDate <= :toDate)")
-  List<Journal> search(@Param("type") final Type type, @Param("fromDate") final Date fromDate,
+  List<Journal> search(@Param("type") final JournalType type, @Param("fromDate") final Date fromDate,
       @Param("toDate") final Date toDate);
 }

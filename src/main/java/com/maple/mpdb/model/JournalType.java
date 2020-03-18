@@ -1,5 +1,5 @@
 package com.maple.mpdb.model;
 
-public enum Type {
+public enum JournalType {
 	DAILY, WEEKLY, MONTHLY
 }
